@@ -23,8 +23,8 @@ app=Flask(__name__)
 mail=Mail(app)
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT']=465
-app.config['MAIL_USERNAME']='*******'
-app.config['MAIL_PASSWORD']='******'
+app.config['MAIL_USERNAME']='*******' # enter email id
+app.config['MAIL_PASSWORD']='******' # enter user paswword
 app.config['MAIL_USE_TLS']=False
 app.config['MAIL_USE_SSL']=True
 mail=Mail(app)
@@ -153,7 +153,7 @@ class SendMail(Action):
         for row in fil_df_html.head(10).iterrows():
                 html_msg+='\n'+(row[1]['Name']+" in "+row[1]['location']+" has been rated "+row[1]['rating']+" with average cost for 2 people "+str(row[1]['price']))
         msg = Message("Send Mail Tutorial!",
-                      sender="chiranshubhatia@gmail.com",
+                      sender="****@gmail.com", # email id of the sender
                       recipients=[emailId])
         msg.body = "List of top restaurants"+html_msg           
         with app.app_context():
