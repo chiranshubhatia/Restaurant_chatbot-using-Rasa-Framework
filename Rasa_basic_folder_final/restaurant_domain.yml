@@ -1,0 +1,94 @@
+slots:
+  location:
+    type: text
+  cuisine:
+    type: text
+  price:
+    type: text
+  emailId:
+    type: text
+  location_avl:
+    type: categorical
+    values:
+      -  1
+      -  0
+      
+entities:
+  - location
+  - cuisine
+  - price
+  - emailId
+
+intents:
+  - greet
+  - affirm
+  - deny
+  - goodbye
+  - restaurants_search
+  - enter_email
+
+templates:
+  utter_greet:
+    - "Hey there! How may I help you?"
+    - "Hi, How can I help you?"
+    - "Hey, How may I help you today?"
+    - "Hello, good to see you!"
+    - "Hi, How are you doing today?"
+    - "Hey, How can I help?"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+    - "Cya"
+  utter_default:
+    - "I didn't understand you, please repeat"
+  utter_ask_cuisine: 
+    - text: "what kind of cuisine would you like?"
+      buttons:
+      - title: "Chinese"
+        payload: "Chinese"
+      - title: "Italian"
+        payload: "Italian"
+      - title: "South Indian"
+        payload: "South Indian"
+      - title: "North Indian"
+        payload: "North Indian"
+  utter_ask_budget:
+      - text: " What price range you are looking for"
+        buttons:
+        - title : "lesser than Rs. 300"
+          payload: "lesser than Rs. 300"
+        - title : "Between Rs. 300 to 700"
+          payload: "300 to 700"
+        - title: "more than 700"
+          payload: "more than 700"
+  utter_not_operate:
+    -  " Sorry, We do not operate in that area yet"
+  utter_ask_howcanhelp:
+    -  " How can I help you?"
+  utter_ask_location:
+    -  " In what location?"
+  utter_get_email:
+    -  " Please provide you emailId "
+  utter_ask_restaurants_list_to_mail:
+    -  " Do you need details of the top 10 restaurants on email?(Yes/No)"
+  utter_email_sent:
+    -  " We have emailed you list of restaurants."
+    -  " Please check your mail box , we have sent list of restaurants "
+  utter_restart:
+    - " Do you want to start again Yes/No"
+actions:
+    - utter_greet
+    - utter_goodbye
+    - utter_default
+    - utter_not_operate
+    - utter_ask_howcanhelp
+    - utter_ask_budget
+    - utter_ask_cuisine
+    - utter_ask_location
+    - utter_get_email
+    - utter_restart
+    - utter_ask_restaurants_list_to_mail
+    - utter_email_sent
+    - actions.ActionSearchRestaurants
+    - actions.ValidateLocation
+    - actions.SendMail

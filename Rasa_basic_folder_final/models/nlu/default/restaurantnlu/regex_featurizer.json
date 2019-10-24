@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Lesser than Rs. 300",
+        "pattern": "<[\\\\s]+300"
+    },
+    {
+        "name": "More than 700",
+        "pattern": ">[\\\\s]+700"
+    },
+    {
+        "name": "Rs. 300 to 700",
+        "pattern": ">[\\\\s]+300+<[\\\\s]+700"
+    },
+    {
+        "name": "emailId",
+        "pattern": "^(\\\\D\\\\w.)*@(\\\\w.*)"
+    },
+    {
+        "name": "greet",
+        "pattern": "hello[^\\\\s]*"
+    },
+    {
+        "name": "greet",
+        "pattern": "hey[^\\\\s]*"
+    },
+    {
+        "name": "greet",
+        "pattern": "hi[^\\\\s]*"
+    },
+    {
+        "name": "zipcode",
+        "pattern": "[0-9]{5}"
+    },
+    {
+        "name": "zipcode",
+        "pattern": "[0-9]{6}"
+    }
+]

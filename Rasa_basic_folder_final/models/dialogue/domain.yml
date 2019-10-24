@@ -1,0 +1,115 @@
+action_factory: null
+action_names:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_not_operate
+- utter_ask_howcanhelp
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_location
+- utter_get_email
+- utter_restart
+- utter_ask_restaurants_list_to_mail
+- utter_email_sent
+- action_restaurant
+- validate_location
+- action_mail_results
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_not_operate
+- utter_ask_howcanhelp
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_location
+- utter_get_email
+- utter_restart
+- utter_ask_restaurants_list_to_mail
+- utter_email_sent
+- actions.ActionSearchRestaurants
+- actions.ValidateLocation
+- actions.SendMail
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- price
+- emailId
+intents:
+- greet
+- affirm
+- deny
+- goodbye
+- restaurants_search
+- enter_email
+slots:
+  cuisine:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  emailId:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location_avl:
+    initial_value: null
+    type: rasa_core.slots.CategoricalSlot
+    values:
+    - '1'
+    - '0'
+  price:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_budget:
+  - buttons:
+    - payload: lesser than Rs. 300
+      title: lesser than Rs. 300
+    - payload: 300 to 700
+      title: Between Rs. 300 to 700
+    - payload: more than 700
+      title: more than 700
+    text: ' What price range you are looking for'
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: what kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: ' How can I help you?'
+  utter_ask_location:
+  - text: ' In what location?'
+  utter_ask_restaurants_list_to_mail:
+  - text: ' Do you need details of the top 10 restaurants on email?(Yes/No)'
+  utter_default:
+  - text: I didn't understand you, please repeat
+  utter_email_sent:
+  - text: ' We have emailed you list of restaurants.'
+  - text: ' Please check your mail box , we have sent list of restaurants '
+  utter_get_email:
+  - text: ' Please provide you emailId '
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  - text: Cya
+  utter_greet:
+  - text: Hey there! How may I help you?
+  - text: Hi, How can I help you?
+  - text: Hey, How may I help you today?
+  - text: Hello, good to see you!
+  - text: Hi, How are you doing today?
+  - text: Hey, How can I help?
+  utter_not_operate:
+  - text: ' Sorry, We do not operate in that area yet'
+  utter_restart:
+  - text: ' Do you want to start again Yes/No'
